@@ -9,4 +9,6 @@ func main() {
 
 	fmt.Println(hand.toString())
 	fmt.Println(remainingDeck.toString())
+
+	hand.savetoFile("card-test")
 }

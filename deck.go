@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"strings"
 )
 
@@ -13,8 +14,8 @@ func newDeck() deck {
 	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
 	cardValues := []string{"Ace", "Two", "Three", "Four"}
 
-	for _, suit := range cardSuits { // _ dont want to use the variable
-		for _, value := range cardValues {
+	for _, suit := range cardValues { // _ dont want to use the variable
+		for _, value := range cardSuits {
 			cards = append(cards, suit+" of "+value)
 		}
 	}
@@ -34,4 +35,8 @@ func (d deck) print() { //receiver  //this or self the receiver
 
 func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
+}
+
+func (d deck) savetoFile(filename string) {
+	ioutil.WriteFile(filename, []byte(d.toString()), 0666) //last parameter is a permisison code
 }
