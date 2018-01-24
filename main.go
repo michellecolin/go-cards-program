@@ -12,4 +12,6 @@ func main() {
 
 	cardsTwo := newDeckFromfile("card-test")
 	cardsTwo.print()
+	cardsTwo.shuffle()
+	cardsTwo.print()
 }
